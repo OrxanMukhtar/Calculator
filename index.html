@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+
+        <div class="border_div">
+        <section class="main_body">
+
+            <header>
+                <div>  <h4 class="main_input_h4" style="height: 4rem;"></h4></div> 
+                <div class="h3_div">  <h3 class="main_input_h3" style="height: 4rem;" id="h3"></h3></div> 
+                <div class="input_div">  <h1 class="main_input_h1" id="h1">0</h1>
+                        <h5 id="h5"></h5>
+                </div>
+            </header>
+
+            <aside class="numbers container">
+                <article class="AC">
+                    <div class="ac_btn" onclick="clear1()"><h2>AC</h2></div>
+                    <div onclick="minus_plus()"><h2>+/-</h2></div>
+                    <div onclick="persent()"><h2>%</h2></div>
+                    <div onclick="element('/')"><h2 class="bolur"  style="color: coral !important;">/</h2></div>
+                </article>
+                <article class="AC">
+                    <div onclick="num('7')"><h2>7</h2></div>
+                    <div onclick="num('8')"><h2>8</h2></div>
+                    <div onclick="num('9')"><h2>9</h2></div>
+                    <div onclick="element('*')"><h2 style="color: coral !important;">x</h2></div>
+                </article>
+                <article class="AC">
+                    <div onclick="num('4')"><h2>4</h2></div>
+                    <div onclick="num('5')"><h2>5</h2></div>
+                    <div onclick="num('6')"><h2>6</h2></div>
+                    <div onclick="element('-')" class="minus"><h2  style="color: coral !important;">-</h2></div>
+                </article>
+
+                <div>
+
+                    <article class="AC grid">
+                        <div onclick="num('1')"><h2>1</h2></div>
+                        <div onclick="num('2')"><h2>2</h2></div>
+                        <div onclick="num('3')"><h2>3</h2></div>
+                        <div onclick="element('+')" class="plus"><h2  style="color: coral !important;">+</h2></div>
+
+                        
+                        <div class="fo_fi_si">
+                            <div onclick="num('0')"><h2>0</h2></div>
+                            <div onclick="num('.')"><h2>.</h2></div>
+                            <div onclick="equal()" class="egual"><h2 style="color: coral !important;">=</h2></div>
+    
+                        </div>
+                    </article>
+
+                    
+
+                </div>
+            </aside>
+
+        </section>
+
+        </div>
+    </main>
+
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
