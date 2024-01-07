@@ -22,6 +22,7 @@ function equal() {
     document.getElementById('h1').innerHTML = equ_1
     document.getElementById('h3').innerHTML = inputNum
     document.getElementById('h5').innerHTML = '='
+    document.getElementById('main_body').style.borderColor = "coral"
 }
 
 
@@ -29,6 +30,7 @@ function clear1() {
     inputNum = ""
     document.getElementById("h5").innerHTML = ''
     document.getElementById("h1").innerHTML = inputNum
+    document.getElementById('main_body').style.borderColor = "#fff"
 
 }
 
