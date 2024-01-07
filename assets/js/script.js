@@ -17,12 +17,29 @@ function element(value) {
 }
 
 function equal() {
-    let equ_1 = eval(inputNum)
-    // inputNum = ''
-    document.getElementById('h1').innerHTML = equ_1
-    document.getElementById('h3').innerHTML = inputNum
-    document.getElementById('h5').innerHTML = '='
-    document.getElementById('main_body').style.borderColor = "coral"
+
+    if(inputNum === "5616183") {
+
+        inputNum = "İdris"
+        document.getElementById('h1').innerHTML = inputNum
+    } else if(inputNum === "3009383") {
+
+        inputNum = "Cəfər"
+        document.getElementById('h1').innerHTML = inputNum
+    } else if(inputNum === "6335557") {
+        inputNum = "&#128640"
+        document.getElementById('h1').innerHTML = inputNum
+
+    }
+    else {
+        let equ_1 = eval(inputNum)
+        // inputNum = ''
+        document.getElementById('h1').innerHTML = equ_1
+        document.getElementById('h3').innerHTML = inputNum
+        document.getElementById('h5').innerHTML = '='
+        document.getElementById('main_body').style.borderColor = "coral"
+    
+    }
 }
 
 
