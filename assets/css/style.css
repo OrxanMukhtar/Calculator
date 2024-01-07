@@ -155,7 +155,7 @@ main {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    background-color: #000;
+    /* background-color: #404040; */
 
 }
 
@@ -169,17 +169,18 @@ main {
     display: none;
 }
 ::-webkit-scrollbar-corner {
-    background-color: #000;
+    background-color: #2a2f33;
 }
 #h3 {
     overflow: scroll;
 }
 
 #h5 {
-    font-size: 4rem;
+    font-size: 2rem;
     color: coral;
-    border-right: 5px solid #2a2f33;
-    padding: 12.5px;
     width: 40px;
+    top: 0;
+    padding-left: 1rem;
+    align-self: flex-start;
 }
 

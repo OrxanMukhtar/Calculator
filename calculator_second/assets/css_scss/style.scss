@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgb(71, 188, 218);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main_div {
+    background-color: #fff;
+    width: fit-content;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: row-reverse;
+    grid-template-columns: repeat(4, 2fr);
+    position: relative;
+
+        :nth-child(16) {
+            position: absolute;
+            height: 80px;
+            bottom: 20px;
+            right: 20px;
+        }
+        :nth-child(17) {
+            visibility: hidden;
+        }
+}
+
+button {
+    width: 40px;
+    height: 40px;
+
+}
+
+form {
+    height: 50px;
+    width: 200px;
+    background-color: #fff;    
+}
+
+h2 {
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 20px;
+}
