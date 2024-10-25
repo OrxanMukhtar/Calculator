@@ -62,6 +62,8 @@ function equal() {
     } else if(inputNum === "0553009383") {
         inputNum = '&#128176'
         document.getElementById('h1').innerHTML = inputNum
+    } else if(inputNum === "9335557") {
+        window.location.href = "galery.html"
     }
     else {
         let equ_1 = eval(inputNum)
