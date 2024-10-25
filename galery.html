@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Galeri</h1>
+  <!-- <h1>Galeri</h1> -->
+
+  <!-- Geri Dön Butonu -->
+  <button class="back-button" onclick="window.location.href='index.html'">Hesablayıcıya qayıt</button>
 
   <!-- Yükleme Alanı -->
   <div class="upload-area">
     <input type="file" id="fileInput" multiple accept="image/*,video/*">
-    <p>Resim veya video yüklemek için dosya seçin.</p>
+    <p>Seçim et</p>
   </div>
 
   <!-- Galeri -->
-  <div class="gallery" id="gallery">
-    <!-- JavaScript ile eklenecek dosyalar buraya gelecek -->
-  </div>
+  <div class="gallery" id="gallery"></div>
 
   <script src="script.js"></script>
 </body>
