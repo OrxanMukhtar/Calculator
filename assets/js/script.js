@@ -47,22 +47,22 @@ function equal() {
     if(inputNum === "6335557") {
         inputNum = "&#128640"
         document.getElementById('h1').innerHTML = inputNum
-    } else if(inputNum === "0505616183") {
+    } else if(inputNum === "100") {
         inputNum = "&#128169"
         document.getElementById('h1').innerHTML = inputNum
-    } else if(inputNum === "3009383") {
-        inputNum = "Müdir &#10084"
+    } else if(inputNum === "200") {
+        inputNum = "&#10084"
         document.getElementById('h1').innerHTML = inputNum
-    } else if(inputNum === "5616183") {
-        inputNum = "K &#10084"
+    } else if(inputNum === "300") {
+        inputNum = "&#10084"
         document.getElementById('h1').innerHTML = inputNum
-    } else if(inputNum === "553009383") {
+    } else if(inputNum === "400") {
         inputNum = '&#10084'
         document.getElementById('h1').innerHTML = inputNum
-    } else if(inputNum === "0553009383") {
+    } else if(inputNum === "500") {
         inputNum = '&#128176'
         document.getElementById('h1').innerHTML = inputNum
-    } else if(inputNum === "9335557") {
+    } else if(inputNum === "911") {
         window.location.href = "galery.html"
     }
     else {
