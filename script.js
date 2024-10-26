@@ -27,8 +27,7 @@ function saveFileToDB(file, fileURL) {
 
   const fileData = {
     fileType: file.type,
-    fileBlob: file,
-    fileURL: fileURL
+    fileBlob: file
   };
 
   objectStore.add(fileData);
@@ -43,14 +42,14 @@ function loadGalleryFromDB() {
     const cursor = event.target.result;
     if (cursor) {
       const fileData = cursor.value;
-      displayMedia(fileData.fileType, URL.createObjectURL(fileData.fileBlob));
+      displayMedia(fileData.fileType, URL.createObjectURL(fileData.fileBlob), fileData.id);
       cursor.continue();
     }
   };
 }
 
 // Galeriye medya öğesi ekle
-function displayMedia(fileType, fileURL) {
+function displayMedia(fileType, fileURL, fileID) {
   const gallery = document.getElementById('gallery');
   const galleryItem = document.createElement('div');
   galleryItem.classList.add('gallery-item');
@@ -60,7 +59,7 @@ function displayMedia(fileType, fileURL) {
   deleteButton.classList.add('delete-button');
   deleteButton.innerText = 'X';
   deleteButton.onclick = function() {
-    deleteFileFromDB(fileURL);
+    deleteFileFromDB(fileID);
     galleryItem.remove();
   };
 
@@ -91,20 +90,17 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
   }
 });
 
-// IndexedDB'den dosya sil
-function deleteFileFromDB(fileURL) {
+// IndexedDB'den dosya kalıcı olarak sil
+function deleteFileFromDB(fileID) {
   const transaction = db.transaction(['media'], 'readwrite');
   const objectStore = transaction.objectStore('media');
 
-  objectStore.openCursor().onsuccess = function(event) {
-    const cursor = event.target.result;
-    if (cursor) {
-      if (URL.createObjectURL(cursor.value.fileBlob) === fileURL) {
-        cursor.delete();
-      } else {
-        cursor.continue();
-      }
-    }
+  const request = objectStore.delete(fileID);
+  request.onsuccess = () => {
+    console.log(`Dosya ID ${fileID} başarıyla silindi.`);
+  };
+  request.onerror = (event) => {
+    console.error('Dosya silinirken hata oluştu:', event.target.errorCode);
   };
 }
 
