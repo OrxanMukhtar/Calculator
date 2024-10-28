@@ -17,12 +17,6 @@
 
   </div>
 
-  <!-- File Input -->
-  <input type="file" id="fileInput" multiple accept="image/*,video/*" style="display: none;">
-
-  <!-- Gallery -->
-  <div class="gallery" id="gallery"></div>
-
   <div id="pinModal" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close" onclick="togglePinModal()">&times;</span>
@@ -39,6 +33,14 @@
         </form>
     </div>
 </div>
+
+
+  <!-- File Input -->
+  <input type="file" id="fileInput" multiple accept="image/*,video/*" style="display: none;">
+
+  <!-- Gallery -->
+  <div class="gallery" id="gallery"></div>
+
 <script>
   // Modal aç/bagla
   function togglePinModal() {
