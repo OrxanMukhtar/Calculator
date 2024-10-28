@@ -7,11 +7,16 @@ html {
     font-size: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 body {
     background-color: #464646;
 }
 
-h1, p, h2, h3, h4 {
+h1,
+p,
+h2,
+h3,
+h4 {
     color: #fff;
 }
 
@@ -21,7 +26,7 @@ header {
     display: flex;
     align-items: end;
     flex-direction: column;
-    
+
     margin-top: 1.5rem;
 }
 
@@ -37,7 +42,9 @@ header div {
     margin-top: 1rem;
     height: 6rem;
 }
-.main_input_h3, .main_input_h4 {
+
+.main_input_h3,
+.main_input_h4 {
     padding-right: 1rem;
     font-size: 3rem;
 }
@@ -74,6 +81,7 @@ main {
     gap: 1rem;
     margin-top: 1rem;
 }
+
 .AC div {
     /* background-color: #24282b; */
     text-align: center;
@@ -99,6 +107,7 @@ main {
     font-size: 2rem;
     font-family: 'Courier New', Courier, monospace;
 }
+
 .grid {
     position: relative;
 }
@@ -113,6 +122,7 @@ main {
     bottom: 0rem;
     left: 0;
 }
+
 .fo_fi_si div:active {
     box-shadow: unset !important;
     background-color: #4e4e4e !important;
@@ -126,12 +136,15 @@ main {
 .egual {
     font-family: 'Courier New', Courier, monospace;
 }
+
 .bolur {
     position: relative;
 }
+
 .bolur::after {
     content: ".";
 }
+
 .bolur::before {
     content: ".";
     position: absolute;
@@ -147,6 +160,7 @@ main {
     box-shadow: unset;
     background-color: #4e4e4e;
 }
+
 .AC .fo_fi_si:active {
     box-shadow: unset !important;
     background-color: unset !important;
@@ -165,15 +179,19 @@ main {
 #h1 {
     overflow: scroll;
 }
+
 ::-webkit-scrollbar {
     height: 1px;
 }
+
 ::-webkit-scrollbar-button {
     display: none;
 }
+
 ::-webkit-scrollbar-corner {
     background-color: #2a2f33;
 }
+
 #h3 {
     overflow: scroll;
 }

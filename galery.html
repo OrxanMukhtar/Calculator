@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galeri</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="galerystyle.css">
 </head>
 <body>
   <h1><a href="index.html">Gallery</a></h1>
@@ -13,6 +13,8 @@
   <div class="navbar">
     <button class="navbar-button" onclick="window.location.href='index.html'"><img class="homebtn" src="homebtn.png" alt=""></button>
     <div class="upload-button" onclick="document.getElementById('fileInput').click()"><img class="addbtn" src="addbtn.png" alt=""></div>
+    <button class="settingbtn1" onclick="togglePinModal()"><img class="settingbtn" src="settingbtn.png" alt=""></button>
+
   </div>
 
   <!-- File Input -->
@@ -20,6 +22,51 @@
 
   <!-- Gallery -->
   <div class="gallery" id="gallery"></div>
+
+  <div id="pinModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="togglePinModal()">&times;</span>
+        <h2>PIN dəyişdir</h2>
+
+        <form onsubmit="changePin(event)">
+            <label for="oldPin">Old PIN:</label>
+            <input type="password" id="oldPin" required>
+
+            <label for="newPin">New PIN:</label>
+            <input type="password" id="newPin" required>
+
+            <button class="pinChngBtn" type="submit">Change it</button>
+        </form>
+    </div>
+</div>
+<script>
+  // Modal açma/kapama işlemi
+  function togglePinModal() {
+      const pinModal = document.getElementById('pinModal');
+      pinModal.style.display = (pinModal.style.display === 'none' || !pinModal.style.display) ? 'block' : 'none';
+  }
+
+  // PIN değiştirme işlemi
+  function changePin(event) {
+      event.preventDefault();
+
+      const oldPin = document.getElementById('oldPin').value;
+      const newPin = document.getElementById('newPin').value;
+      const savedPin = localStorage.getItem('pin');
+
+      if (oldPin === savedPin) {
+          localStorage.setItem('pin', newPin);
+          alert('PIN changed');
+          togglePinModal(); // Modalı kapatma
+      } else {
+          alert('old PIN is wrong!');
+      }
+
+      // Formu temizleme
+      document.getElementById('oldPin').value = '';
+      document.getElementById('newPin').value = '';
+  }
+</script>
 
   <script src="script.js"></script>
 </body>
