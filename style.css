@@ -9,7 +9,16 @@ body {
   }
   
   h1 {
-    color: #333;
+    color: #ffffff;
+    text-align: center;
+    background-color: #007bff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 40px;
+    z-index: 100;
+    margin: 0;
+    padding: 10px;
   }
   
   /* Navbar Styling */
@@ -20,7 +29,7 @@ body {
     background-color: #007bff;
     display: flex;
     justify-content: space-around;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     color: #fff;
     z-index: 100;
   }
@@ -33,13 +42,24 @@ body {
     background: none;
     border: none;
   }
+
+  .homebtn {
+    width: 30px;
+  }
+
+  .addbtn {
+    width: 40px;
+  }
   
   .upload-button {
-    font-size: 30px;
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
   }
   
   .gallery {
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
@@ -70,7 +90,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 20px;
+    font-size: 25px;
     color: #888;
     cursor: pointer;
     user-select: none;
