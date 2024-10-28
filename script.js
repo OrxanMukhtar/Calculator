@@ -1,6 +1,6 @@
 let db;
 
-// IndexedDB veritabanını başlat
+// Initialize IndexedDB
 function initDB() {
   const request = indexedDB.open('GalleryDB', 1);
 
@@ -16,11 +16,11 @@ function initDB() {
   };
 
   request.onerror = (event) => {
-    console.error('Veritabanı açma hatası:', event.target.errorCode);
+    console.error('Storage error:', event.target.errorCode);
   };
 }
 
-// Dosyaları IndexedDB'ye kaydet
+// Save file to IndexedDB
 function saveFileToDB(file, fileURL) {
   const transaction = db.transaction(['media'], 'readwrite');
   const objectStore = transaction.objectStore('media');
@@ -33,7 +33,7 @@ function saveFileToDB(file, fileURL) {
   objectStore.add(fileData);
 }
 
-// IndexedDB'den dosyaları yükle
+// Load gallery from IndexedDB
 function loadGalleryFromDB() {
   const transaction = db.transaction(['media'], 'readonly');
   const objectStore = transaction.objectStore('media');
@@ -48,25 +48,56 @@ function loadGalleryFromDB() {
   };
 }
 
-// Galeriye medya öğesi ekle
+// Display media in the gallery
 function displayMedia(fileType, fileURL, fileID) {
   const gallery = document.getElementById('gallery');
   const galleryItem = document.createElement('div');
   galleryItem.classList.add('gallery-item');
 
-  // Silme butonu ekle
-  const deleteButton = document.createElement('button');
-  deleteButton.classList.add('delete-button');
-  deleteButton.innerText = 'X';
-  deleteButton.onclick = function() {
+  // Three dots menu and dropdown
+  const threeDotsMenu = document.createElement('span');
+  threeDotsMenu.classList.add('three-dots-menu');
+  threeDotsMenu.innerHTML = '⋮';
+
+  const dropdown = document.createElement('div');
+  dropdown.classList.add('dropdown-menu');
+
+  // Dropdown options
+  const downloadOption = document.createElement('button');
+  downloadOption.classList.add('dropdown-option');
+  downloadOption.innerText = 'Yükle';
+  downloadOption.onclick = () => {
+    downloadFile(fileURL, fileType);
+    dropdown.style.display = 'none';
+  };
+
+  const deleteOption = document.createElement('button');
+  deleteOption.classList.add('dropdown-option');
+  deleteOption.innerText = 'Sil';
+  deleteOption.onclick = () => {
     deleteFileFromDB(fileID);
     galleryItem.remove();
+    dropdown.style.display = 'none';
   };
+
+  dropdown.appendChild(downloadOption);
+  dropdown.appendChild(deleteOption);
+
+  // Toggle dropdown on three dots click
+  threeDotsMenu.onclick = () => {
+    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+  };
+
+  document.addEventListener('click', (event) => {
+    if (!galleryItem.contains(event.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
 
   if (fileType.startsWith('image/')) {
     const img = document.createElement('img');
     img.src = fileURL;
-    img.alt = 'Yüklenen Resim';
+    img.alt = 'Uploaded Image';
     galleryItem.appendChild(img);
   } else if (fileType.startsWith('video/')) {
     const video = document.createElement('video');
@@ -75,11 +106,20 @@ function displayMedia(fileType, fileURL, fileID) {
     galleryItem.appendChild(video);
   }
 
-  galleryItem.appendChild(deleteButton);
+  galleryItem.appendChild(threeDotsMenu);
+  galleryItem.appendChild(dropdown);
   gallery.appendChild(galleryItem);
 }
 
-// Dosya yükleme işlemi
+// Download file
+function downloadFile(fileURL, fileType) {
+  const link = document.createElement('a');
+  link.href = fileURL;
+  link.download = `downloaded-file.${fileType.split('/')[1]}`;
+  link.click();
+}
+
+// Upload files
 document.getElementById('fileInput').addEventListener('change', function(event) {
   const files = event.target.files;
   for (let i = 0; i < files.length; i++) {
@@ -90,19 +130,19 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
   }
 });
 
-// IndexedDB'den dosya kalıcı olarak sil
+// Delete file from IndexedDB
 function deleteFileFromDB(fileID) {
   const transaction = db.transaction(['media'], 'readwrite');
   const objectStore = transaction.objectStore('media');
 
   const request = objectStore.delete(fileID);
   request.onsuccess = () => {
-    console.log(`Dosya ID ${fileID} başarıyla silindi.`);
+    console.log(`Item ID ${fileID} deleted.`);
   };
   request.onerror = (event) => {
-    console.error('Dosya silinirken hata oluştu:', event.target.errorCode);
+    console.error('Error during deletion:', event.target.errorCode);
   };
 }
 
-// Veritabanını başlat
+// Initialize DB on page load
 initDB();

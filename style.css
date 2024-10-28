@@ -12,33 +12,34 @@ body {
     color: #333;
   }
   
-  .back-button {
-    margin-bottom: 15px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .back-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .upload-area {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #fff;
-    border: 2px dashed #888;
-    border-radius: 8px;
+  /* Navbar Styling */
+  .navbar {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    max-width: 600px;
-    text-align: center;
+    background-color: #007bff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    color: #fff;
+    z-index: 100;
+  }
+  
+  .navbar-button,
+  .upload-button {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  .upload-button {
+    font-size: 30px;
   }
   
   .gallery {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
@@ -64,21 +65,48 @@ body {
     height: auto;
   }
   
-  .delete-button {
+  /* Three dots icon and dropdown menu styling */
+  .three-dots-menu {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: #ff4545;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 5px;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #888;
     cursor: pointer;
-    font-size: 10px;
-    transition: background-color 0.3s;
+    user-select: none;
+    transition: color 0.3s;
   }
   
-  .delete-button:hover {
-    background-color: #ff1a1a;
+  .three-dots-menu:hover {
+    color: #333;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    display: none; /* Hidden by default */
+  }
+  
+  .dropdown-option {
+    padding: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .dropdown-option:hover {
+    background-color: #f0f0f0;
   }
   
