@@ -1,3 +1,13 @@
+window.onload = function() {
+  const isRegistered = localStorage.getItem('username');
+  const registerButton = document.getElementById('registerButton');
+
+  if (isRegistered && registerButton) {
+      registerButton.style.display = 'none';
+  }
+};
+
+
 let inputNum = ``
 
 document.addEventListener('keydown', function(event) {
@@ -43,6 +53,7 @@ function element(value) {
 }
 
 function equal() {
+  const savedPin = localStorage.getItem('pin');
 
     if(inputNum === "6335557") {
         inputNum = "&#128640"
@@ -62,7 +73,7 @@ function equal() {
     } else if(inputNum === "500") {
         inputNum = '&#128176'
         document.getElementById('h1').innerHTML = inputNum
-    } else if(inputNum === "911") {
+    } else if(inputNum === savedPin) {
         window.location.href = "galery.html"
     }
     else {

@@ -20,6 +20,10 @@ body {
     margin: 0;
     padding: 10px;
   }
+  h1 a {
+    color: #fff;
+    text-decoration: none;
+  }
   
   /* Navbar Styling */
   .navbar {
