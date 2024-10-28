@@ -159,3 +159,7 @@ video {
 .dropdown-option:hover {
   background-color: #f0f0f0;
 }
+
+#pinModal {
+  margin-bottom: 60px;
+}

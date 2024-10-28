@@ -40,13 +40,13 @@
     </div>
 </div>
 <script>
-  // Modal açma/kapama işlemi
+  // Modal aç/bagla
   function togglePinModal() {
       const pinModal = document.getElementById('pinModal');
       pinModal.style.display = (pinModal.style.display === 'none' || !pinModal.style.display) ? 'block' : 'none';
   }
 
-  // PIN değiştirme işlemi
+  // PIN deyisdir
   function changePin(event) {
       event.preventDefault();
 
@@ -57,12 +57,12 @@
       if (oldPin === savedPin) {
           localStorage.setItem('pin', newPin);
           alert('PIN changed');
-          togglePinModal(); // Modalı kapatma
+          togglePinModal(); // Modalı bagla
       } else {
           alert('old PIN is wrong!');
       }
 
-      // Formu temizleme
+      // Formu temizle
       document.getElementById('oldPin').value = '';
       document.getElementById('newPin').value = '';
   }
